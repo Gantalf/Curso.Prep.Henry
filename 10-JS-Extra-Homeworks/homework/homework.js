@@ -10,6 +10,8 @@ function deObjetoAmatriz(objeto){
       C: 3
     }) ➞ [["D", 1], ["B", 2], ["C", 3]]*/
   //Escribe tu código aquí
+  let objetToArray = Object.entries(objeto);
+  return objetToArray;
 }
 
 
@@ -18,6 +20,17 @@ function numberOfCharacters(string) {
   //en formato par clave-valor.
   //Ej: Recibe ---> "adsjfdsfsfjsdjfhacabcsbajda" || Devuelve ---> { a: 5, b: 2, c: 2, d: 4, f: 4, h:1, j: 4, s: 5 } 
   //Escribe tu código aquí
+  /**
+   * Evalúa que lo que mandas en la posición del objeto en ese momento, que es un string, no exista o "no este repetido" y si no lo está, es false, inicializa la variable en 0, de caso contrario suma una vez por sí mismo el valor con el que se haya encontrado a esa variable. Eso es, básicamente lo que hace el programa
+   */
+  let obj = {};
+  for (let i=0; i<string.length; i++){
+    if(!obj[string[i]]){
+      obj[string[i]] = 0;
+    }
+    obj[string[i]] +=1;
+  }
+  return obj;
 }
 
 
@@ -26,6 +39,23 @@ function capToFront(s) {
   //al principio de la palabra.
   //Ejemplo: soyHENRY -> HENRYsoy
   //Escribe tu código aquí
+  let str = [];
+  let min = [];
+  for (i = 0; i < s.length; i++){
+    if (s[i] === s[i].toUpperCase()){
+      str.push(s[i]);
+    }else{
+      min.push(s[i])
+    }
+  }
+  let strToString = str.toString();
+  let finalStr = strToString.replace(/,/gi, '');
+  let minToString = min.toString();
+  let finalMin = minToString.replace(/,/gi, '');
+
+  let finalS = finalStr + finalMin;
+  return finalS;
+
 }
 
 
@@ -35,6 +65,14 @@ function asAmirror(str) {
   //pero con cada una de sus palabras invertidas, como si fuera un espejo.
   //Ej: Recibe ---> "The Henry Challenge is close!" || Devuelve ---> "ehT yrneH egnellahC si !esolc"
   //Escribe tu código aquí
+  let strToArray = str.split(' ');
+  rever = [];
+  for (let i=0; i < strToArray.length; i++){
+    rever.push(strToArray[i].split('').reverse().join(''));
+  }
+  let reverStr = rever.toString();
+  let finalRever = reverStr.replace(/,/gi, ' ');
+  return finalRever;
 } 
 
 
@@ -43,6 +81,13 @@ function capicua(numero){
   //La misma debe retornar: "Es capicua" si el número se número que se lee igual de 
   //izquierda a derecha que de derecha a izquierda. Caso contrario retorna "No es capicua"
   //Escribe tu código aquí
+  numToStr = numero.toString();
+  let numInvertido =  numToStr.split('').reverse().join('');
+  if (numToStr === numInvertido) {
+    return 'Es capicua';
+  }else {
+    return 'No es capicua';
+  }
 }
 
 
